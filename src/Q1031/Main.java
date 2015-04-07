@@ -1,8 +1,5 @@
 package Q1031;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -18,14 +15,21 @@ public class Main {
 			if (m == 0 && n == 0) {
 				break;
 			}
-			List<Integer> nums = new ArrayList<Integer>();
+			int[] nums = new int[n];
 			for (int i = 0; i < n; i++) {
-				nums.add(input.nextInt());
+				nums[i] = input.nextInt();
 			}
-			nums.add(m);
-			Collections.sort(nums);
-			for (Integer num : nums) {
-				System.out.printf("%d ", num);
+			int i;
+			for (i = 0; i < n; i++) {
+				if (m < nums[i]) {
+					System.out.printf("%d ", m);
+					break;
+				} else {
+					System.out.printf("%d ", nums[i]);
+				}
+			}
+			for (; i < n; i++) {
+				System.out.printf("%d ", nums[i]);
 			}
 			System.out.println();
 		}
