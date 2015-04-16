@@ -9,8 +9,13 @@ public class Main {
 
 	public static int Maxmium(int a, int b, int c) {
 		int max = a;
-		if (a < b) max = b;
-		if (a < c) max = c;
+		if (a < b) {
+			if (b < c) {
+				max = c;
+			} else {
+				max = b;
+			}
+		}
 		return max;
 	}
 
