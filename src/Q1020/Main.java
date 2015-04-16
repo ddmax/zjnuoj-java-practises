@@ -11,8 +11,8 @@ public class Main {
 		Scanner input = new Scanner(System.in);
 		int n = input.nextInt();
 		List<Integer> people = new ArrayList<Integer>();
-		for (int i = 0; i < n; i++) {
-			people.add(i + 1);
+		for (int i = 1; i <= n; i++) {
+			people.add(i);
 		}
 		int counter = 1;
 		ListIterator<Integer> iterator;
