@@ -10,14 +10,14 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		int n = input.nextInt();
-		List<Integer> people = new ArrayList<Integer>();
+		List<Integer> monkeys = new ArrayList<Integer>();
 		for (int i = 1; i <= n; i++) {
-			people.add(i);
+			monkeys.add(i);
 		}
 		int counter = 1;
 		ListIterator<Integer> iterator;
-		while (people.size() > 1) {
-			iterator = people.listIterator();
+		while (monkeys.size() > 1) {
+			iterator = monkeys.listIterator();
 			while (iterator.hasNext()) {
 				iterator.next();
 				if (counter++ == 3) {
@@ -26,7 +26,7 @@ public class Main {
 				}
 			}
 		}
-		System.out.println(people.get(0));
+		System.out.println(monkeys.get(0));
 		input.close();
 	}
 }
