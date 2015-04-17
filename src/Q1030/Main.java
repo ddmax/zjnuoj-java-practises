@@ -7,22 +7,21 @@ import java.util.Scanner;
  */
 public class Main {
 
-	public static int f(int year) {
-		if (year <= 4) {
-			return year;
-		} else {
-			return f(year - 1) + f(year - 3);
-		}
-	}
-
 	public static void main(String[] args) {
+		long[] dp = new long[56];
+		dp[1] = 1;
+		dp[2] = 2;
+		dp[3] = 3;
+		for (int i = 4; i <= 55; i++) {
+			dp[i] = dp[i - 1] + dp[i - 3];
+		}
 		Scanner input = new Scanner(System.in);
 		while (input.hasNext()) {
 			int year = input.nextInt();
 			if (year == 0) {
 				break;
 			}
-			System.out.println(f(year));
+			System.out.println(dp[year]);
 		}
 		input.close();
 	}
