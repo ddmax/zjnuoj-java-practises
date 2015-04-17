@@ -7,31 +7,6 @@ import java.util.Scanner;
  */
 public class Main {
 
-	public static int[] findMaxAndMinPos(int[] nums) {
-		int max = 0;
-		int min = 0;
-		for (int i = 1; i < nums.length; i++) {
-			if (nums[i] > nums[max]) {
-				max = i;
-			}
-			if (nums[i] < nums[min]) {
-				min = i;
-			}
-		}
-		return new int[]{max, min};
-	}
-
-	public static void swap(int[] nums) {
-		int[] maxAndMin = findMaxAndMinPos(nums);
-		int temp;
-		temp = nums[nums.length - 1];
-		nums[nums.length - 1] = nums[maxAndMin[0]];
-		nums[maxAndMin[0]] = temp;
-		temp = nums[0];
-		nums[0] = nums[maxAndMin[1]];
-		nums[maxAndMin[1]] = temp;
-	}
-
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		int[] nums = new int[10];
@@ -40,7 +15,29 @@ public class Main {
 		}
 		swap(nums);
 		for (int i = 0; i < nums.length; i++) {
-			System.out.printf("%d ", nums[i]);
+			System.out.print(nums[i] + " ");
 		}
+		input.close();
+	}
+
+	public static void swap(int[] nums) {
+		int max = 0, min = 0;
+		for (int i = 1; i < nums.length; i++) {
+			if (nums[i] > nums[max]) {
+				max = i;
+			}
+			if (nums[i] < nums[min]) {
+				min = i;
+			}
+		}
+		int temp;
+		// 注意：必须先将最大值与最后一个数先交换，
+		// 然后最小值与第一个数交换，否则不通过！
+		temp = nums[nums.length - 1];
+		nums[nums.length - 1] = nums[max];
+		nums[max] = temp;
+		temp = nums[0];
+		nums[0] = nums[min];
+		nums[min] = temp;
 	}
 }
